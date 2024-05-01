@@ -11,6 +11,7 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableMethodSecurity
 public class AppConfiguration {
 
+    // Spring Security
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.csrf(csrf -> csrf.disable());
@@ -18,7 +19,6 @@ public class AppConfiguration {
         return http.build();
     }
 
-    // Spring Security
     @Bean
     public BCryptPasswordEncoder bCryptPasswordEncoder() {
         return new BCryptPasswordEncoder();
