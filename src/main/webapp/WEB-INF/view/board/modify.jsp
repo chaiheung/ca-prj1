@@ -10,33 +10,26 @@
           crossorigin="anonymous">
 </head>
 <body>
-<c:import url="/WEB-INF/fragment/navbar.jsp"></c:import>
-<h3>게시물 목록</h3>
-<table>
-    <thead>
-    <tr>
-        <th>#</th>
-        <th>제목</th>
-        <th>작성자</th>
-    </tr>
-    </thead>
-    <tbody>
-    <c:forEach items="${boardList}" var="board">
-        <c:url value="/board" var="viewLink">
-            <c:param name="id" value="${board.id}"></c:param>
-        </c:url>
-        <tr>
-            <td>${board.id}</td>
-            <td>
-                <a href="${viewLink}">
-                        ${board.title}
-                </a>
-            </td>
-            <td>${board.writer}</td>
-        </tr>
-    </c:forEach>
-    </tbody>
-</table>
+<c:import url="/WEB-INF/fragment/navbar.jsp"/>
+<h3>${board.id}번 게시물 수정</h3>
+<form action="/modify" method="post">
+    <input type="hidden" name="id" value="${board.id}">
+    <div>
+        제목
+        <input type="text" name="title" value="${board.title}" required>
+    </div>
+    <div>
+        본문
+        <textarea cols="30" rows="10" name="content" required>${board.content}</textarea>
+    </div>
+    <div>
+        작성자
+        <input type="text" value="${board.writer}" name="writer" required>
+    </div>
+    <div>
+        <button>수정</button>
+    </div>
+</form>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>

@@ -49,10 +49,28 @@ public class BoardController {
         return "board/home";
     }
 
+    // 삭제
     @PostMapping("delete")
     public String delete(Integer id, RedirectAttributes rttr) {
         service.remove(id);
 
         return "redirect:/";
+    }
+
+    // 수정
+    @GetMapping("/modify")
+    public String modifyForm(Integer id, Model model) {
+        // 조회해서
+        // 모델에 넣고
+        model.addAttribute("board", service.get(id));
+        // view 로 포워드
+        return "board/modify";
+    }
+
+    @PostMapping("/modify")
+    public String modifyPost(Board board, RedirectAttributes rttr) {
+        service.modify(board);
+        rttr.addAttribute("id", board.getId());
+        return "redirect:/board";
     }
 }

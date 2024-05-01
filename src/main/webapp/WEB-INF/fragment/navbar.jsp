@@ -3,7 +3,7 @@
 
 <div>
     <div>
-        <a href="">
+        <a href="/">
             목록
         </a>
     </div>
