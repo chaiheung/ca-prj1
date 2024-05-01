@@ -11,10 +11,10 @@
 </head>
 <body>
 <div class="container">
-    <c:import url="/WEB-INF/fragment/navbar.jsp"></c:import>
+
     <div class="row justify-content-center">
         <div class="col-6">
-            <h3>${board.id} 번 게시물</h3>
+            <h3 class="mb-4">${board.id} 번 게시물</h3>
             <div class="mb-3">
                 <label for="inputTitle" class="form-label">
                     제목
@@ -45,9 +45,11 @@
                 <button form="formDelete" class="btn btn-danger">삭제</button>
                 <a href="/modify?id=${board.id}" class="btn btn-secondary">수정</a>
             </div>
+
         </div>
     </div>
 </div>
+
 <div style="display: none">
     <form id="formDelete" action="/delete" method="post" onsubmit="return confirm('삭제 하시겠습니까?')">
         <input type="hidden" name="id" value="${board.id}">
