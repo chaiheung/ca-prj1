@@ -1,10 +1,7 @@
 package com.caprj1.mapper;
 
 import com.caprj1.domain.Board;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Options;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -32,4 +29,10 @@ public interface BoardMapper {
 
             """)
     List<Board> selectAll();
+
+    @Delete("""
+            DELETE FROM board
+            WHERE id = #{id}
+            """)
+    int deleteById(Integer id);
 }

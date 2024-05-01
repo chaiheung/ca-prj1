@@ -26,7 +26,7 @@
     <input type="datetime-local" value="${board.inserted}" readonly>
 </div>
 <div>
-    <form action="/delete" method="post">
+    <form action="/delete" method="post" onsubmit="return confirm('정말 삭제하시겠어요?')">
         <input type="hidden" name="id" value="${board.id}">
         <button>삭제</button>
     </form>
