@@ -20,15 +20,15 @@
                 <%-- div*3>label.form-label+input.form-control--%>
                 <div class="mb-3">
                     <label for="inputEmail" class="form-label">이메일</label>
-                    <input id="inputEmail" required type="email" class="form-control">
+                    <input name="email" id="inputEmail" required type="email" class="form-control">
                 </div>
                 <div class="mb-3">
                     <label for="inputPassword" class="form-label">패스워드</label>
-                    <input id="inputPassword" required type="password" class="form-control">
+                    <input name="password" id="inputPassword" required type="password" class="form-control">
                 </div>
                 <div class="mb-3">
                     <label for="inputNickname" class="form-label">닉네임</label>
-                    <input id="inputNickname" required type="text" class="form-control">
+                    <input name="nickname" id="inputNickname" required type="text" class="form-control">
                 </div>
                 <div>
                     <button class="btn btn-primary">가입</button>

@@ -22,3 +22,5 @@ CREATE TABLE member
     password VARCHAR(200) NOT NULL,
     nickname VARCHAR(100) NOT NULL UNIQUE
 );
+SELECT *
+FROM member;
