@@ -42,7 +42,7 @@
                     <input value="${member.inserted}" id="inputInserted" type="text" readonly="" class="form-control">
                 </div>
                 <div>
-                    <button class="btn btn-danger" form="">탈퇴</button>
+                    <button class="btn btn-danger" form="formDelete">탈퇴</button>
                 </div>
             </div>
         </div>
