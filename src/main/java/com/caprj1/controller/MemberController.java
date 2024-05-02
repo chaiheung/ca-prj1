@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
@@ -56,5 +57,13 @@ public class MemberController {
         service.modify(member);
         rttr.addAttribute("id", member.getId());
         return "redirect:/member";
+    }
+
+    @GetMapping("email")
+    @ResponseBody // 응답한 데이터를 view 로 해석하지 않음
+    public String emailCheck(String email) {
+        System.out.println("email = " + email);
+        String message = service.emailCheck(email);
+        return message;
     }
 }

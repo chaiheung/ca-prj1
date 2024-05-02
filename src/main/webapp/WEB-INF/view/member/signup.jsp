@@ -20,7 +20,14 @@
                 <%-- div*3>label.form-label+input.form-control--%>
                 <div class="mb-3">
                     <label for="inputEmail" class="form-label">계정</label>
-                    <input name="email" id="inputEmail" required type="email" class="form-control">
+                    <div class="input-group mb-3">
+                        <input name="email" id="inputEmail" required type="email" class="form-control">
+                        <button onclick="emailCheck();" type="button" class="btn btn-outline-secondary" type="button"
+                                id="buttonEmailCheck">중복
+                            확인
+                        </button>
+                    </div>
+
                 </div>
                 <div class="mb-3">
                     <label for="inputPassword" class="form-label">비밀번호</label>
@@ -49,6 +56,29 @@
 
 <script>
 
+    // jquery 사용 시 코드
+    // $(function () {
+    //     $("#buttonEmailCheck").click(function () {
+    //         const emailValue = $("#inputEmail").value();
+    //         // ajax 요청
+    //         $.ajax("/member/email?email=" + emailValue);
+    //         // 응답 처리
+    //
+    //     });
+    // })
+
+    async function emailCheck() {
+        const emailValue = document.querySelector("#inputEmail").value;
+        const url = "/member/email?email=" + emailValue;
+
+        // ajax 요청
+        const response = await fetch(encodeURI(url));
+        // 응답처리
+        // console.log(response.text());
+        alert(await response.text());
+    }
+
+
     function passwordCheck() {
         const password = document.querySelector("#inputPassword").value;
         const passwordCheck = document.querySelector("#inputPasswordCheck").value;
@@ -73,6 +103,7 @@
         }
     }
 </script>
+
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js"
         integrity="sha512-ykZ1QQr0Jy/4ZkvKuqWn4iF3lqPZyij9iRv6sGqLRdTPkY69YX6+7wvVGmsdBbiIfN/8OdsI7HABjvEok6ZopQ=="
