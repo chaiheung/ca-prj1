@@ -1,6 +1,7 @@
 package com.caprj1.mapper;
 
 import com.caprj1.domain.Member;
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
@@ -21,4 +22,17 @@ public interface MemberMapper {
             ORDER BY id DESC
             """)
     List<Member> selectAll();
+
+    @Select("""
+            SELECT *
+            FROM member
+            WHERE id = #{id}
+            """)
+    Member selectById(Integer id);
+
+    @Delete("""
+            DELETE FROM member
+            WHERE id = #{id}
+            """)
+    int deleteById(Integer id);
 }

@@ -11,7 +11,7 @@
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link" href="/">
-                        목록
+                        게시물 목록
                     </a>
                 </li>
                 <li class="nav-item">

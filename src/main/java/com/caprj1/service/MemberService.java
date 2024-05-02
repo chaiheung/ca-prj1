@@ -21,4 +21,12 @@ public class MemberService {
     public List<Member> list() {
         return mapper.selectAll();
     }
+
+    public Member get(Integer id) {
+        return mapper.selectById(id);
+    }
+
+    public void remove(Integer id) {
+        mapper.deleteById(id);
+    }
 }
