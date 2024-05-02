@@ -23,7 +23,9 @@
                 <%--div.mb-3*2>label.form-label+input.form-control[name][value]--%>
                 <div class="mb-3">
                     <label for="inputEmail" class="form-label">계정</label>
-                    <input id="inputEmail" type="email" class="form-control" name="email" value="${member.email}">
+                    <input style="background-color: lightsalmon" id="inputEmail" type="email" class="form-control"
+                           name="email" value="${member.email}"
+                           readonly>
                 </div>
                 <div class="mb-3">
                     <label for="inputPassword" class="form-label">비밀번호</label>
