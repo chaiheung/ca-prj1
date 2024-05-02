@@ -1,10 +1,7 @@
 package com.caprj1.mapper;
 
 import com.caprj1.domain.Member;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -35,4 +32,13 @@ public interface MemberMapper {
             WHERE id = #{id}
             """)
     int deleteById(Integer id);
+
+    @Update("""
+            UPDATE member 
+            SET email=#{email}, 
+                password=#{password}, 
+                nickname=#{nickname} 
+            WHERE id = #{id}
+            """)
+    int update(Member member);
 }
