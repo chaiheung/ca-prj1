@@ -18,7 +18,7 @@
         <div class="col-6">
             <%--h3.mb-4{회원 정보 수정}--%>
             <h3 class="mb-4">회원 정보 수정</h3>
-            <form action="/member/modify" method="post" onsubmit="return confirm('수정하시겠습니까?')">
+            <form action="/member/modify" method="post" onsubmit="return checkValues()">
                 <input type="hidden" name="id" value="${member.id}">
                 <%--div.mb-3*2>label.form-label+input.form-control[name][value]--%>
                 <div class="mb-3">
