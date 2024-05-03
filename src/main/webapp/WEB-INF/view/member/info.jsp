@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -41,10 +42,16 @@
                     </label>
                     <input value="${member.inserted}" id="inputInserted" type="text" readonly="" class="form-control">
                 </div>
-                <div>
-                    <button class="btn btn-danger" form="formDelete">탈퇴</button>
-                    <a class="btn btn-secondary" href="/member/modify?id=${member.id}">정보 수정</a>
-                </div>
+
+                <sec:authorize access="isAuthenticated()">
+                    <sec:authentication property="principal.member" var="authMember"></sec:authentication>
+                    <c:if test="${authMember.id eq member.id}">
+                        <div>
+                            <button class="btn btn-danger" form="formDelete">탈퇴</button>
+                            <a class="btn btn-secondary" href="/member/modify?id=${member.id}">정보 수정</a>
+                        </div>
+                    </c:if>
+                </sec:authorize>
             </div>
         </div>
     </div>
