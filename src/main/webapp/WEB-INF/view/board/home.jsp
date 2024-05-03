@@ -50,7 +50,7 @@
     <div class="row justify-content-center">
         <div class="col-6">
             <%--페이지 번호 링크--%>
-            <c:forEach begin="1" end="${pageInfo.lastPageNumber}" var="pageNumber">
+            <c:forEach begin="${pageInfo.beginPageNumber}" end="${pageInfo.endPageNumber}" var="pageNumber">
                 <c:url var="pageLink" value="/">
                     <c:param name="page" value="${pageNumber}">
                     </c:param>
