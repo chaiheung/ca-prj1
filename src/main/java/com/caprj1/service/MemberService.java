@@ -45,6 +45,14 @@ public class MemberService {
     }
 
     public void modify(Member member) {
+        if (member.getPassword() != null && member.getPassword().length() > 0) {
+            // 암호를 입력했을 때만 변경
+            member.setPassword(encoder.encode(member.getPassword()));
+        } else {
+            // 기존 암호 유지
+            Member old = mapper.selectById(member.getId());
+            old.setPassword(old.getPassword());
+        }
         mapper.update(member);
     }
 
