@@ -23,13 +23,13 @@
                         <label for="inputEmail" class="form-label">
                             계정
                         </label>
-                        <input id="inputEmail" type="email" class="form-control">
+                        <input id="inputEmail" name="username" type="email" class="form-control">
                     </div>
                     <div class="mb-3">
                         <label for="inputPassword" class="form-label">
                             비밀번호
                         </label>
-                        <input id="inputPassword" type="password" class="form-control">
+                        <input id="inputPassword" name="password" type="password" class="form-control">
                     </div>
                     <div class="mb-3">
                         <button class="btn btn-primary">
