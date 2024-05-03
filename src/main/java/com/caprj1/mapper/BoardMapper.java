@@ -44,12 +44,12 @@ public interface BoardMapper {
     int update(Board board);
 
     @Select("""
-            SELECT *
-            FROM board
+            SELECT b.id, b.title, m.nickname writer
+            FROM board b JOIN member m ON b.member_id = m.id
             ORDER BY id DESC
             LIMIT #{offset}, 10
             """)
-    List<Board> selectAllbyPage(int offset);
+    List<Board> selectAllByPage(int offset);
 
     @Select("""
             SELECT COUNT(*) FROM board

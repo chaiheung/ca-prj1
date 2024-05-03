@@ -22,6 +22,8 @@
                             글쓰기
                         </a>
                     </li>
+                </sec:authorize>
+                <sec:authorize access="isAuthenticated()">
                     <li class="nav-item">
                         <a class="nav-link" href="/member/list">
                             회원목록
@@ -34,6 +36,8 @@
                             회원가입
                         </a>
                     </li>
+                </sec:authorize>
+                <sec:authorize access="not isAuthenticated()">
                     <%--li.nav-item>a.nav-link{로그인}--%>
                     <li class="nav-item">
                         <a href="/member/login" class="nav-link">

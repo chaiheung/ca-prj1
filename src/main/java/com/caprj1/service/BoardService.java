@@ -47,7 +47,7 @@ public class BoardService {
         int prevPageNumber = beginPageNumber - 10;
         int nextPageNumber = beginPageNumber + 10;
 
-        return Map.of("boardList", mapper.selectAllbyPage(offset),
+        return Map.of("boardList", mapper.selectAllByPage(offset),
                 "pageInfo", Map.of("lastPageNumber", lastPageNumber,
                         "endPageNumber", endPageNumber,
                         "beginPageNumber", beginPageNumber,
