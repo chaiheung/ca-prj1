@@ -29,6 +29,13 @@
                         회원가입
                     </a>
                 </li>
+
+                <%--li.nav-item>a.nav-link{로그인}--%>
+                <li class="nav-item">
+                    <a href="/member/login" class="nav-link">
+                        로그인
+                    </a>
+                </li>
             </ul>
         </div>
     </div>

@@ -66,4 +66,10 @@ public class MemberController {
         String message = service.emailCheck(email);
         return message;
     }
+
+    // 로그인 폼
+    @GetMapping("login")
+    public String loginForm() {
+        return "member/login";
+    }
 }
