@@ -51,6 +51,8 @@ UPDATE board
 SET member_id = 8
 WHERE id > 0;
 
+DESC board;
+
 SELECT *
 FROM board
 LIMIT 3;

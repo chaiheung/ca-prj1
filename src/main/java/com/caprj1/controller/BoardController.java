@@ -3,14 +3,13 @@ package com.caprj1.controller;
 import com.caprj1.domain.Board;
 import com.caprj1.service.BoardService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
-import java.security.Principal;
 
 @Controller
 @RequiredArgsConstructor
@@ -24,9 +23,9 @@ public class BoardController {
     }
 
     @PostMapping("/add")
-    public String addPost(Board board, Principal principal, RedirectAttributes rttr) {
-        System.out.println("board = " + board);
-        service.add(board);
+    public String addPost(Board board, Authentication authentication, RedirectAttributes rttr) {
+        // System.out.println("board = " + board);
+        service.add(board, authentication);
 
         rttr.addAttribute("id", board.getId());
         return "redirect:/board";

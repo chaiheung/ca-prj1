@@ -1,8 +1,11 @@
 package com.caprj1.service;
 
 import com.caprj1.domain.Board;
+import com.caprj1.domain.CustomUser;
+import com.caprj1.domain.Member;
 import com.caprj1.mapper.BoardMapper;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -15,8 +18,13 @@ import java.util.Map;
 public class BoardService {
     private final BoardMapper mapper;
 
-    public void add(Board board) {
-        mapper.insert(board);
+    public void add(Board board, Authentication authentication) {
+        Object principal = authentication.getPrincipal();
+        if (principal instanceof CustomUser user) {
+            Member member = user.getMember();
+            board.setMemberId(member.getId());
+            mapper.insert(board);
+        }
     }
 
     public Board get(Integer id) {
