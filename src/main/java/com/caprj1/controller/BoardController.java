@@ -46,7 +46,7 @@ public class BoardController {
     public String home(@RequestParam(value = "page", defaultValue = "1") Integer page, Model model) {
         // 게시물 목록 조회(select)
         // 모델에 넣고
-        model.addAttribute("boardList", service.list(page));
+        model.addAllAttributes(service.list(page));
         // jsp 로 포워드
         return "board/home";
     }
