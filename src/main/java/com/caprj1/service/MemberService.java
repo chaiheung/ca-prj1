@@ -20,7 +20,7 @@ public class MemberService {
 //        String password = member.getPassword();
 //        String encodedPassword = encoder.encode(password);
 //        member.setPassword(encodedPassword);
-        encoder.encode(member.getPassword());
+        member.setPassword(encoder.encode(member.getPassword()));
         mapper.insert(member);
     }
 

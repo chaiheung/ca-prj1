@@ -11,12 +11,12 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">
+                        게시물 목록
+                    </a>
+                </li>
                 <sec:authorize access="isAuthenticated()">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/">
-                            게시물 목록
-                        </a>
-                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/add">
                             글쓰기
