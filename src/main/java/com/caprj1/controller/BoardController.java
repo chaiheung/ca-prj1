@@ -54,9 +54,11 @@ public class BoardController {
 
     // 삭제
     @PostMapping("delete")
-    public String delete(Integer id, RedirectAttributes rttr) {
-        service.remove(id);
+    public String delete(Integer id, Authentication authentication) {
 
+        if (service.hasAccess(id, authentication)) {
+            service.remove(id);
+        }
         return "redirect:/";
     }
 

@@ -63,4 +63,18 @@ public class BoardService {
                         "nextPageNumber", nextPageNumber,
                         "currentPageNumber", page));
     }
+
+
+    public boolean hasAccess(Integer id, Authentication authentication) {
+        if (authentication == null) {
+            return false;
+        }
+        Board board = mapper.selectById(id);
+        Object principal = authentication.getPrincipal();
+        if (principal instanceof CustomUser user) {
+            Member member = user.getMember();
+            return board.getMemberId().equals(member.getId());
+        }
+        return false;
+    }
 }

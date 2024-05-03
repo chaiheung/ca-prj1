@@ -16,7 +16,12 @@ public interface BoardMapper {
     int insert(Board board);
 
     @Select("""
-            SELECT b.id, b.title, b.content, b.inserted, m.nickname writer
+            SELECT b.id,
+                   b.title,
+                   b.content,
+                   b.inserted,
+                   m.nickname writer,
+                   m.id member_id
             FROM board b JOIN member m ON b.member_id = m.id
             WHERE b.id = #{id}
             """)
