@@ -3,6 +3,7 @@ package com.caprj1.controller;
 import com.caprj1.domain.Member;
 import com.caprj1.service.MemberService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -30,15 +31,19 @@ public class MemberController {
     }
 
     @GetMapping("list")
+    @PreAuthorize("hasAuthority('admin')")
     public String list(Model model) {
         model.addAttribute("memberList", service.list());
         return "member/list";
     }
 
     @GetMapping("")
-    public String info(Integer id, Model model) {
-        model.addAttribute("member", service.get(id));
-        return "member/info";
+    public String info(Integer id, Authentication authentication, Model model) {
+        if (service.hasAccess(id, authentication)) {
+            model.addAttribute("member", service.get(id));
+            return "member/info";
+        }
+        return "redirect:/";
     }
 
     @PostMapping("remove")
