@@ -38,6 +38,10 @@ FROM board;
 SELECT COUNT(id)
 FROM board;
 
+DELETE
+FROM board
+WHERE member_id = 8;
+
 # board 테이블 수정
 # writer 컬럼 지우기
 # member_id INT REFERENCES member(id) 컬럼 추가
